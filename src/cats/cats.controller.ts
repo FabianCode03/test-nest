@@ -10,7 +10,7 @@ import {
 import { CatsService } from './cats.service';
 import { CreateCatDto } from './dto/create-cat.dto';
 import { UpdateCatDto } from './dto/update-cat.dto';
-import { CatIsCrazyException } from 'src/exeptions/catIsCrazyException';
+import { CatIsCrazyException } from 'src/exceptions/catIsCrazyException';
 
 @Controller('cats')
 export class CatsController {
