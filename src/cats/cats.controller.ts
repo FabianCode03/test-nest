@@ -10,6 +10,7 @@ import {
 import { CatsService } from './cats.service';
 import { CreateCatDto } from './dto/create-cat.dto';
 import { UpdateCatDto } from './dto/update-cat.dto';
+import { CatIsCrazyException } from 'src/exeptions/catIsCrazyException';
 
 @Controller('cats')
 export class CatsController {
@@ -27,7 +28,11 @@ export class CatsController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.catsService.findOne(+id);
+    if (id === '8') {
+      throw new CatIsCrazyException();
+    } else {
+      return this.catsService.findOne(+id);
+    }
   }
 
   @Patch(':id')
